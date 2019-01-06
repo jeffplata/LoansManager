@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+<style>
+  tr:nth-child(even) {background: #CCC}
+  tr:nth-child(odd) {background: #FFF}
+</style>
+<h1>
+    Services
+</h1>
+<table style="width:25%">
+{{i = -1}}
+{{for service in rows:}}
+{{i = i +1}}
+<tr>
+    <td>{{=service.service_name}}</td>
+    <td>{{=types[i]}}</td>
+</tr>
+{{pass}}
+</table>

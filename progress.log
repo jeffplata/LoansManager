@@ -1,0 +1,25 @@
+[2019-01-06 19:21:11] START
+[2019-01-06 19:33:31] EDIT LoansManager/models/db.py: 15
+[2019-01-06 19:34:12] EDIT LoansManager/models/menu.py: -89
+[2019-01-06 19:37:07] EDIT LoansManager/views/layout.html: 2
+[2019-01-06 19:40:21] EDIT LoansManager/models/menu.py: 1
+[2019-01-06 20:22:02] EDIT LoansManager/models/menu.py: 0
+[2019-01-06 20:27:45] EDIT LoansManager/controllers/default.py: 12
+[2019-01-06 20:28:33] CREATE default/list_services.html: 0
+[2019-01-06 20:28:51] EDIT LoansManager/views/default/list_services.html: 6
+[2019-01-06 21:20:46] EDIT LoansManager/controllers/default.py: 0
+[2019-01-06 21:27:18] EDIT LoansManager/views/default/list_services.html: 3
+[2019-01-06 21:32:17] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:42:38] EDIT LoansManager/views/default/list_services.html: 2
+[2019-01-06 21:43:27] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:47:09] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:47:17] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:48:04] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:48:30] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:49:15] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:50:15] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:50:37] EDIT LoansManager/views/default/list_services.html: 0
+[2019-01-06 21:52:14] EDIT LoansManager/views/layout.html: 0
+[2019-01-06 21:53:30] EDIT LoansManager/views/layout.html: 0
+[2019-01-06 22:01:11] EDIT LoansManager/views/default/list_services.html: 4
+[2019-01-06 22:01:18] EDIT LoansManager/views/default/list_services.html: 0
