@@ -74,3 +74,15 @@ def list_services():
 def create_service():
     form = SQLFORM(db.services).process()
     return locals()
+
+def list_members():
+    return locals()
+
+def create_member():
+    return locals()
+
+def list_loans():
+    return locals()
+
+def create_loan():
+    return locals()

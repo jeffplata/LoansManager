@@ -1,4 +1,4 @@
-timestamp: 2019-01-06T19:21:21.875000
+timestamp: 2019-01-07T10:06:34.388000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2019-01-06T19:21:21.906000
+timestamp: 2019-01-07T10:06:34.419000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2019-01-06T19:21:21.937000
+timestamp: 2019-01-07T10:06:34.435000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2019-01-06T19:21:21.953000
+timestamp: 2019-01-07T10:06:34.450000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2019-01-06T19:21:21.984000
+timestamp: 2019-01-07T10:06:34.481000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2019-01-06T19:21:22.015000
+timestamp: 2019-01-07T10:06:34.513000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,13 +53,13 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2019-01-06T19:33:40
+timestamp: 2019-01-07T10:06:34.528000
 CREATE TABLE "service_types"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "type_name" CHAR(512)
 );
 success!
-timestamp: 2019-01-06T19:33:40.031000
+timestamp: 2019-01-07T10:06:34.544000
 CREATE TABLE "services"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "service_name" CHAR(512),

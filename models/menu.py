@@ -15,7 +15,7 @@ response.menu = [
 
 response.menu += [
     (T('Services'), False, URL('default', 'list_services'), []),
-    (T('Members'), False, URL('default', 'index'), []),
-    (T('Loans'), False, URL('default', 'index'), []),
+    (T('Members'), False, URL('default', 'list_members'), []),
+    (T('Loans'), False, URL('default', 'list_loans'), []),
     (T('Design'), False, 'http://127.0.0.1:8000/admin/default/design/LoansManager', []),
     ]
