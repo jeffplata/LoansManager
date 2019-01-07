@@ -60,15 +60,9 @@ def download():
 # actions
 # List of services
 
-def get_service_name(type_id=int):
-    type_item = db(db.service_types.id==type_id).select()
-    return type_item[0].type_name
-
 def list_services():
-    rows = db(db.services).select()
-    types = []
-    for s in rows:
-        types.append(get_service_name(s.service_type))
+    rows = db(db.services.service_type == db.service_types.id).select(
+        db.services.service_name, db.service_types.type_name)
     return locals()
 
 def create_service():
