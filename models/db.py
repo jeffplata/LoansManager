@@ -164,8 +164,14 @@ db.define_table('services',
                 Field('service_type','reference service_types',requires=IS_IN_DB(db,db.service_types.id,
                                                                                 '%(type_name)s',
                                                                                 error_message='not in table',
-                                                                                zero=None))
+                                                                                zero=None)),
+                Field('interest_rate','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(0,100)),                                                                
+                Field('max_term','integer'),
+                auth.signature,                                                                
+                format='%(service_name)s',
     )
+db.services._plural='Services'
+db.services._singular='Service'
 
 if db(db.service_types).count() < 1:
     db.service_types.insert(type_name='Loan')

@@ -66,3 +66,35 @@ CREATE TABLE "services"(
     "service_type" INTEGER REFERENCES "service_types" ("id") ON DELETE CASCADE  
 );
 success!
+timestamp: 2019-01-09T15:11:53.308000
+ALTER TABLE "services" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2019-01-09T15:11:53.324000
+ALTER TABLE "services" ADD "is_active" CHAR(1);
+timestamp: 2019-01-09T15:11:53.339000
+ALTER TABLE "services" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
+timestamp: 2019-01-09T15:11:53.355000
+ALTER TABLE "services" ADD "created_on" TIMESTAMP;
+timestamp: 2019-01-09T15:11:53.355000
+ALTER TABLE "services" ADD "modified_on" TIMESTAMP;
+success!
+timestamp: 2019-01-09T16:02:13.893000
+ALTER TABLE "services" ADD "interest_rate" DOUBLE;
+timestamp: 2019-01-09T16:02:13.987000
+ALTER TABLE "services" ADD "max_term" INTEGER;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

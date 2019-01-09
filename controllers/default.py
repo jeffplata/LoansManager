@@ -63,6 +63,9 @@ def download():
 def list_services():
     rows = db(db.services.service_type == db.service_types.id).select(
         db.services.service_name, db.service_types.type_name)
+    grid = SQLFORM.smartgrid(db.services
+        , fields = [db.services.service_name,db.services.service_type]
+        )
     return locals()
 
 def create_service():
