@@ -155,7 +155,7 @@ if configuration.get('scheduler.enabled'):
 # auth.enable_record_versioning(db)
 
 db.define_table('service_types',
-                Field('type_name', requires=[IS_NOT_EMPTY(), IS_SLUG()]),
+                Field('type_name', requires=[IS_NOT_EMPTY(), IS_ALPHANUMERIC()]),
                 format='%(type_name)s',
     )
 
@@ -164,10 +164,12 @@ db.define_table('services',
                 Field('service_type','reference service_types',requires=IS_IN_DB(db,db.service_types.id,
                                                                                 '%(type_name)s',
                                                                                 error_message='not in table',
-                                                                                zero=None)),
-                Field('interest_rate','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(0,100)),                                                                
+                                                                                zero=None),
+                                                                                ondelete='RESTRICT',
+                                                                                ),
+                Field('interest_rate','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(0,100)),
                 Field('max_term','integer'),
-                auth.signature,                                                                
+                auth.signature,
                 format='%(service_name)s',
     )
 db.services._plural='Services'

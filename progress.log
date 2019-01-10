@@ -48,3 +48,4 @@
 [2019-01-07 21:58:15] EDIT LoansManager/views/default/list_services.html: 0
 [2019-01-07 22:03:27] EDIT LoansManager/controllers/default.py: -3
 [2019-01-07 22:04:11] EDIT LoansManager/controllers/default.py: 0
+[2019-01-10 11:53:16] EDIT LoansManager/models/db.py: 0

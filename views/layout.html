@@ -31,6 +31,11 @@
     <!-- Favicons -->
     {{include 'web2py_ajax.html'}} <!-- this includes jquery.js, calendar.js/.css and web2py.js -->
     {{block head}}{{end}}
+    <style>
+      .web2py_breadcrumbs {
+        font-size: 24px;
+      }    
+    </style>
   </head>
   <body>
     <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>

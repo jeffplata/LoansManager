@@ -1,4 +1,4 @@
-timestamp: 2019-01-07T10:06:34.388000
+timestamp: 2019-01-10T14:09:14.754000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2019-01-07T10:06:34.419000
+timestamp: 2019-01-10T14:09:14.785000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2019-01-07T10:06:34.435000
+timestamp: 2019-01-10T14:09:14.800000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2019-01-07T10:06:34.450000
+timestamp: 2019-01-10T14:09:14.832000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2019-01-07T10:06:34.481000
+timestamp: 2019-01-10T14:09:14.847000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2019-01-07T10:06:34.513000
+timestamp: 2019-01-10T14:09:14.878000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,48 +53,23 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2019-01-07T10:06:34.528000
+timestamp: 2019-01-10T14:09:14.894000
 CREATE TABLE "service_types"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "type_name" CHAR(512)
 );
 success!
-timestamp: 2019-01-07T10:06:34.544000
+timestamp: 2019-01-10T14:09:14.925000
 CREATE TABLE "services"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "service_name" CHAR(512),
-    "service_type" INTEGER REFERENCES "service_types" ("id") ON DELETE CASCADE  
+    "service_type" INTEGER REFERENCES "service_types" ("id") ON DELETE RESTRICT  ,
+    "interest_rate" DOUBLE,
+    "max_term" INTEGER,
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
-success!
-timestamp: 2019-01-09T15:11:53.308000
-ALTER TABLE "services" ADD "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
-timestamp: 2019-01-09T15:11:53.324000
-ALTER TABLE "services" ADD "is_active" CHAR(1);
-timestamp: 2019-01-09T15:11:53.339000
-ALTER TABLE "services" ADD "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ;
-timestamp: 2019-01-09T15:11:53.355000
-ALTER TABLE "services" ADD "created_on" TIMESTAMP;
-timestamp: 2019-01-09T15:11:53.355000
-ALTER TABLE "services" ADD "modified_on" TIMESTAMP;
-success!
-timestamp: 2019-01-09T16:02:13.893000
-ALTER TABLE "services" ADD "interest_rate" DOUBLE;
-timestamp: 2019-01-09T16:02:13.987000
-ALTER TABLE "services" ADD "max_term" INTEGER;
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
-success!
 success!
