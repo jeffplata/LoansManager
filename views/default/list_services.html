@@ -1,34 +1,9 @@
-{{extend 'layout.html'}}
+    {{extend 'layout.html'}}
 
-<style>
-  tr:nth-child(even) {background: #CCC}
-  tr:nth-child(odd) {background: #FFF}
+    <style>
+      tr:nth-child(even) {background: #CCC}
+      tr:nth-child(odd) {background: #FFF}
 
-</style>
- 
-<!-- 
-<h1>
-    Services
-</h1>
- -->
-{{=grid}}
-<!-- 
-<table style="width:25%">
-    <tr>
-    <th>
-        <b>Service Name</b>
-    </th>
-    <th>
-        <b>Type</b>
-    </th>
-    </tr>
-{{i = -1}}
-{{for row in rows:}}
-{{i = i +1}}
-<tr>
-    <td>{{=row.services.service_name}}</td>
-    <td>{{=row.service_types.type_name}}</td>
-</tr>
-{{pass}}
-</table>
- -->
+    </style>
+
+    {{=grid}}

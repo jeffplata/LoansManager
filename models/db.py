@@ -155,9 +155,11 @@ if configuration.get('scheduler.enabled'):
 # auth.enable_record_versioning(db)
 
 db.define_table('service_types',
-                Field('type_name', requires=[IS_NOT_EMPTY(), IS_ALPHANUMERIC()]),
+                Field('type_name', requires=IS_NOT_EMPTY()),
                 format='%(type_name)s',
     )
+db.service_types._plural='Service Types'
+db.service_types._singular='Service Type'
 
 db.define_table('services',
                 Field('service_name',requires=[IS_NOT_EMPTY(),IS_NOT_IN_DB(db,'services.service_name')]),
