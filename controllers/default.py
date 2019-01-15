@@ -70,7 +70,7 @@ def list_service_types():
 def ondelete_service_type(service_type_table, service_type_id):
    count = db(db.services.service_type == service_type_id).count()
    if count > 0:
-       response.flash = 'Cant delete'
+       session.flash = T('Cant delete')
    else:
        pass
    return locals()
