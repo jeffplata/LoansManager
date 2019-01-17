@@ -73,3 +73,15 @@ CREATE TABLE "services"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
+timestamp: 2019-01-17T18:09:50.041000
+CREATE TABLE "loan"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "service" INTEGER REFERENCES "services" ("id") ON DELETE RESTRICT  
+);
+success!
+timestamp: 2019-01-17T18:16:58.559000
+CREATE TABLE "members"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "member_name" CHAR(512)
+);
+success!

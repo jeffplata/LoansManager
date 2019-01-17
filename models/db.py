@@ -181,3 +181,16 @@ if db(db.service_types).count() < 1:
     db.service_types.insert(type_name='Loan')
     db.service_types.insert(type_name='Contribution')
     db.service_types.insert(type_name='Other')
+
+db.define_table('members',
+    Field('member_name'),                                       
+    )    
+    
+db.define_table('loan',
+    Field('service','reference services',requires=IS_IN_DB(db,db.service_types.id,
+                                            '%(service_name)s',
+                                            error_message='not in table',
+                                            zero=None),
+                                            ondelete='RESTRICT',),
+                                           
+    )

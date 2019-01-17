@@ -14,9 +14,13 @@ response.menu = [
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu += [
+    (T('Tasks'), False, '#', [
+        (T('File a Loan'), False, URL('default', 'file_loan'), []),
+        ]),
     (T('Services'), False, URL('default', 'list_services'), []),
     (T('Service Types'), False, URL('default', 'list_service_types'), []),
     (T('Members'), False, URL('default', 'list_members'), []),
     (T('Loans'), False, URL('default', 'list_loans'), []),
     (T('Design'), False, 'http://127.0.0.1:8000/admin/default/design/LoansManager', []),
+    (T('AppAdmin'), False, URL('appadmin','index'), []),
     ]

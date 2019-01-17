@@ -60,21 +60,21 @@ def download():
 # actions
 # List of services
 
+def ondelete_service_type(service_type_table, service_type_id):
+    count = db(db.services.service_type == service_type_id).count()
+    if count > 0:        
+        session.flash = T("Cant delete")
+        redirect(URL('default','list_service_types#'))        
+    else:
+        pass
+    return locals()
+
 def list_service_types():
     grid = SQLFORM.smartgrid(db.service_types
         , fields = [db.service_types.type_name, db.services.service_name]
         , ondelete = ondelete_service_type
         )
     return locals()
-
-def ondelete_service_type(service_type_table, service_type_id):
-   count = db(db.services.service_type == service_type_id).count()
-   if count > 0:
-       session.flash = T('Cant delete')
-   else:
-       pass
-   return locals()
-     
 
 def create_service_type():
     form = SQLFORM(db.service_types).process()
@@ -103,3 +103,6 @@ def list_loans():
 
 def create_loan():
     return locals()
+    
+def file_loan():
+    return locals()    
