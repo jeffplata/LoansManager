@@ -93,6 +93,9 @@ def create_service():
     
     
 def list_members():
+    grid = SQLFORM.smartgrid(db.members
+        , fields = [db.members.member_name]
+        )
     return locals()
 
 def create_member():

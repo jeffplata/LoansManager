@@ -184,7 +184,9 @@ if db(db.service_types).count() < 1:
 
 db.define_table('members',
     Field('member_name'),                                       
-    )    
+    )
+db.members._plural='Members'
+db.members._singular='Member'
     
 db.define_table('loan',
     Field('service','reference services',requires=IS_IN_DB(db,db.service_types.id,
