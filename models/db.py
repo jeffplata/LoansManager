@@ -189,10 +189,16 @@ db.members._plural='Members'
 db.members._singular='Member'
     
 db.define_table('loan',
-    Field('service','reference services',requires=IS_IN_DB(db,db.service_types.id,
+    Field('service','reference services',requires=IS_IN_DB(db,db.services.id,
                                             '%(service_name)s',
                                             error_message='not in table',
                                             zero=None),
                                             ondelete='RESTRICT',),
-                                           
-    )
+    Field('member_id','reference members',requires=IS_IN_DB(db,db.members.id,
+                                            '%(member_name)s',
+                                            error_message='not in table',
+                                            zero=None),
+                                            ondelete='RESTRICT',),
+    Field('amount','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(1000)),
+    Field('interest_rate','decimal(6,2)',default=db.services.interest_rate),
+    )   

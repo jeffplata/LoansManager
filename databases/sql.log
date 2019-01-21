@@ -85,3 +85,11 @@ CREATE TABLE "loan"(
     "service" INTEGER REFERENCES "services" ("id") ON DELETE RESTRICT  
 );
 success!
+timestamp: 2019-01-21T09:47:18.996000
+ALTER TABLE "loan" ADD "amount" DOUBLE;
+timestamp: 2019-01-21T09:47:19.056000
+ALTER TABLE "loan" ADD "member_id" INTEGER REFERENCES "members" ("id") ON DELETE RESTRICT  ;
+success!
+timestamp: 2019-01-21T11:55:11.073000
+ALTER TABLE "loan" ADD "interest_rate" DOUBLE;
+success!
