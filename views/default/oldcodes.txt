@@ -1,3 +1,18 @@
+Your Batch Request Number is 0696-2009-1500-0108.
+Please read the Payment and Delivery instructions.
+
+
+
+#attempt to replace delete button
+def list_service_types():
+    grid = SQLFORM.smartgrid(db.service_types
+        , fields = [db.service_types.type_name, db.services.service_name]
+        , ondelete = ondelete_service_type
+        , links = [lambda row: A('Delete', _href='#', _class="button btn btn-secondary icon trash icon-trash glyphicon glyphicon-trash", )]
+        )
+    return locals()
+    
+    
 def list_services():
     rows = db(db.services.service_type == db.service_types.id).select(
         db.services.service_name, db.service_types.type_name)

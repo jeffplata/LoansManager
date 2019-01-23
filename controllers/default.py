@@ -60,11 +60,13 @@ def download():
 # actions
 # List of services
 
+SERVICE_TYPE = ''
+
 def ondelete_service_type(service_type_table, service_type_id):
     count = db(db.services.service_type == service_type_id).count()
     if count > 0:        
-        #session.flash = T("Cant delete")
-        redirect(URL('cant'))
+        response.flash = T('Cant delete %s.', (db.service_type.type_name))
+        raise HTTP(403)
     else:
         pass
     return locals()
@@ -73,7 +75,6 @@ def list_service_types():
     grid = SQLFORM.smartgrid(db.service_types
         , fields = [db.service_types.type_name, db.services.service_name]
         , ondelete = ondelete_service_type
-        , links = [lambda row: A('Delete', _href='#', _class="button btn btn-secondary icon trash icon-trash glyphicon glyphicon-trash", )]
         )
     return locals()
 
