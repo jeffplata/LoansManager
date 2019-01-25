@@ -7,6 +7,7 @@
 'is': ['are'],
 'man': ['men'],
 'miss': ['misses'],
+'month': ['months'],
 'person': ['people'],
 'quark': ['quarks'],
 'row': ['rows'],

@@ -1,0 +1,41 @@
+{{extend 'layout.html'}}
+<style>
+.loan-details {
+  width:300px;
+  padding: 8px 0;
+  float: left;
+  border-style: solid;
+}
+.file-button {
+  width:300px;
+  padding: 8px 0;
+  float: right;
+  border-style: solid;
+}
+.row-div {
+  width: 600px;
+}
+</style>
+<h2>Loan Services</h2>
+<div class="col-8">
+  <table class="table">
+  {{for row in rows:}}
+  <tr>
+    <td>
+    <div class="row-div">
+    <div class="loan-details">
+      <strong>{{=row.service_name}}</strong>
+      <br>
+      {{=row.interest_rate}}%&nbsp&nbsp&nbsp{{=T('%s %%{month}', row.max_term)}}
+      
+    </div>
+    <div class="file-button">
+    <a href="{{=URL('default', 'file_loan')}}" class="btn btn-secondary">File a Loan</a>
+    </div>
+    </div>
+    </td>
+  </tr>
+  {{pass}}
+  </table>
+</div>
+

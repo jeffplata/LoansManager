@@ -18,6 +18,7 @@ response.menu += [
         (T('File a Loan'), False, URL('default', 'file_loan'), []),
         ]),
     (T('Services'), False, URL('default', 'list_services'), []),
+    (T('Loan Services'), False, URL('default', 'loan_services'), []),
     (T('Service Types'), False, URL('default', 'list_service_types'), []),
     (T('Members'), False, URL('default', 'list_members'), []),
     (T('Loans'), False, URL('default', 'list_loans'), []),

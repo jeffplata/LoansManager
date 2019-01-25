@@ -88,6 +88,11 @@ def list_services():
         , linked_tables = []
         )
     return locals()
+    
+def loan_services():
+    loan_type_id = db(db.service_types.type_name=='Loan').select().first()
+    rows = db(db.services.service_type==loan_type_id).select()
+    return locals()
 
    
 def create_service():
