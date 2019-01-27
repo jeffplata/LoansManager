@@ -1,16 +1,14 @@
 {{extend 'layout.html'}}
 <style>
-.loan-details {
+.service-details {
   width:300px;
   padding: 8px 0;
   float: left;
-  border-style: solid;
 }
 .file-button {
   width:300px;
   padding: 8px 0;
   float: right;
-  border-style: solid;
 }
 .row-div {
   width: 600px;
@@ -23,15 +21,14 @@
   <tr>
     <td>
     <div class="row-div">
-    <div class="loan-details">
-      <strong>{{=row.service_name}}</strong>
-      <br>
-      {{=row.interest_rate}}%&nbsp&nbsp&nbsp{{=T('%s %%{month}', row.max_term)}}
-      
-    </div>
-    <div class="file-button">
-    <a href="{{=URL('default', 'file_loan')}}" class="btn btn-secondary">File a Loan</a>
-    </div>
+		<div class="service-details">
+		  <strong>{{=row.service_name}}</strong>
+		  <br>
+		  {{=row.interest_rate}}%&nbsp&nbsp&nbsp{{=T('%s %%{month}', row.max_term)}}
+		</div>
+		<div class="file-button">
+		  <a href="{{=URL('default', 'file_loan',args=row.id)}}" class="btn btn-secondary">File a Loan</a>
+		</div>
     </div>
     </td>
   </tr>

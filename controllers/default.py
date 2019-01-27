@@ -116,4 +116,11 @@ def create_loan():
     return locals()
     
 def file_loan():
+    service_id = request.args(0)
+    db.loan.service.writable = False
+    db.loan.interest_rate.writable = False
+    interest = db(db.services.id==service_id).select(db.services.interest_rate)
+    db.loan.interest_rate.default = '%(interest_rate)s'
+    db.loan.service.default = service_id
+    form = SQLFORM(db.loan).process()
     return locals()    
