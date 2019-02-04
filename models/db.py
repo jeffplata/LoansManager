@@ -188,6 +188,9 @@ db.define_table('members',
 db.members._plural='Members'
 db.members._singular='Member'
     
+def get_interest():
+    return (request.vars.amount)
+    
 db.define_table('loan',
     Field('service','reference services',requires=IS_IN_DB(db,db.services.id,
                                             '%(service_name)s',
@@ -200,6 +203,8 @@ db.define_table('loan',
                                             zero=None),
                                             ondelete='RESTRICT',
                                             label='Member'),
-    Field('amount','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(1000)),
+    Field('amount','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(1000),default=1000),
     Field('interest_rate','decimal(6,2)'),
+    #Field('interest','decimal(15,2)', compute=lambda r: r.interest_rate * r.amount)
+    Field('interest','decimal(15,2)')
     )   

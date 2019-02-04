@@ -52,3 +52,5 @@
 [2019-01-17 17:53:46] CREATE default/file_loan.html: 0
 [2019-01-18 09:05:14] CREATE default/cant_delete_service_type.html: 0
 [2019-01-23 09:51:25] DELETE LoansManager/views/default/list_services.html: -6
+[2019-02-04 14:05:17] DELETE LoansManager/views/default/list_loans.html: -4
+[2019-02-04 14:13:19] CREATE default/list_loans.html: 0

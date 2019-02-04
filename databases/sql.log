@@ -1,4 +1,4 @@
-timestamp: 2019-01-26T10:15:28.565000
+timestamp: 2019-02-04T11:37:15.528000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -10,21 +10,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2019-01-26T10:15:28.612000
+timestamp: 2019-02-04T11:37:15.559000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2019-01-26T10:15:28.628000
+timestamp: 2019-02-04T11:37:15.575000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2019-01-26T10:15:28.628000
+timestamp: 2019-02-04T11:37:15.590000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -33,7 +33,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2019-01-26T10:15:28.643000
+timestamp: 2019-02-04T11:37:15.622000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -43,7 +43,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2019-01-26T10:15:28.659000
+timestamp: 2019-02-04T11:37:15.637000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -53,13 +53,13 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2019-01-26T10:15:28.690000
+timestamp: 2019-02-04T11:37:15.668000
 CREATE TABLE "service_types"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "type_name" CHAR(512)
 );
 success!
-timestamp: 2019-01-26T10:15:28.690000
+timestamp: 2019-02-04T11:37:15.684000
 CREATE TABLE "services"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "service_name" CHAR(512),
@@ -73,13 +73,13 @@ CREATE TABLE "services"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2019-01-26T10:15:28.784000
+timestamp: 2019-02-04T11:37:15.746000
 CREATE TABLE "members"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "member_name" CHAR(512)
 );
 success!
-timestamp: 2019-01-26T10:15:28.800000
+timestamp: 2019-02-04T11:37:15.762000
 CREATE TABLE "loan"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "service" INTEGER REFERENCES "services" ("id") ON DELETE RESTRICT  ,
@@ -88,4 +88,6 @@ CREATE TABLE "loan"(
     "interest_rate" DOUBLE
 );
 success!
+timestamp: 2019-02-04T16:31:21.231000
+ALTER TABLE "loan" ADD "interest" DOUBLE;
 success!

@@ -1,6 +1,32 @@
-Your Batch Request Number is 0696-2009-1500-0108.
-Please read the Payment and Delivery instructions.
+#custom form
+Anthony,
 
+I just tested it again, form.widget.fieldname WORKS with _readonly. Earlier i had 'total' field defined in Field() with writable=True, somehow it didn't like it when i set this field _readonly= True. Thank you so much (also to Peter and Villas)!
+
+(I changed the test table to invoice)
+In controller:
+row = db.invoice(1)
+form = SQLFORM(db.invoice, row, formstyle='table2cols')
+form.custom.widget.total['_readonly'] = True
+
+In view:
+{{=form.custom.begin}}
+Invoice Id: <div>{{=form.custom.widget.id}}</div>
+Customer: <div>{{=form.custom.widget.customer}} </div>
+Project Name: <div>{{=form.custom.widget.project_name}}</div>
+Total: <div>{{=form.custom.widget.total}}</div>
+{{=form.custom.submit}}
+{{=form.custom.end}}
+
+<script>
+jQuery(document).ready(function(){
+    jQuery('#invoice_project_name').change(function(){
+        var invoice_total = jQuery('#invoice_total').val();
+        alert("invoice_total = " + invoice_total);
+        jQuery('#invoice_total').val('4000');
+    });
+});
+</script>
 
 
 #attempt to replace delete button

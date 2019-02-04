@@ -1,4 +1,14 @@
 {{extend 'layout.html'}}
-<h1>
-    Loans
-</h1>
+<h2>Loans Granted</h2>
+{{=rows}}
+<div class="col-8">
+  <table class="table">
+  {{for row in rows:}}
+  <tr>
+    <td>
+      
+    </td>
+  </tr>
+  {{pass}}
+  </table>
+</div>
