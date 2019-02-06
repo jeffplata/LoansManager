@@ -111,9 +111,9 @@ def create_member():
 
 def list_loans():
     rows = db((db.loan.service==db.services.id) & (db.loan.member_id==db.members.id)).select(
-      db.services.service_name, 
-      db.loan.amount, 
+      db.services.service_name,
       db.members.member_name,
+      db.loan.amount,
       db.loan.interest_rate,
       )
     return locals()
@@ -127,10 +127,10 @@ def file_loan():
     service_id = request.args(0)
     db.loan.service.writable = False
     db.loan.interest_rate.writable = False
+    db.loan.interest.writable = False
     db.loan.service.default = service_id
     interest_r = db(db.services.id==service_id).select(db.services.interest_rate).first().interest_rate
     db.loan.interest_rate.default = interest_r
-    db.loan.interest.default = interest_r * Decimal('0.01') * db.loan.amount.default
-    db.loan.interest.prec = 2
+    db.loan.interest.default = round(Decimal('0.01') * db.loan.amount.default * interest_r, 2)
     form = SQLFORM(db.loan,fields=['service','member_id','amount','interest_rate','interest']).process()
     return locals()

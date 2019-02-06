@@ -205,6 +205,5 @@ db.define_table('loan',
                                             label='Member'),
     Field('amount','decimal(15,2)',requires=IS_DECIMAL_IN_RANGE(1000),default=1000),
     Field('interest_rate','decimal(6,2)'),
-    #Field('interest','decimal(15,2)', compute=lambda r: r.interest_rate * r.amount)
-    Field('interest','decimal(15,2)')
+    Field('interest','decimal(15,3)')
     )   

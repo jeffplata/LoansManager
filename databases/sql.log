@@ -91,3 +91,4 @@ success!
 timestamp: 2019-02-04T16:31:21.231000
 ALTER TABLE "loan" ADD "interest" DOUBLE;
 success!
+success!
