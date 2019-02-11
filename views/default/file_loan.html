@@ -7,6 +7,6 @@
 
 <script>
 jQuery('#loan_amount').on('input', function() {
-    jQuery('#loan_interest').val() = 999
+    jQuery('#loan_interest').val({{=interest_r}} * 0.01 * $(this).val())
 });
 </script>

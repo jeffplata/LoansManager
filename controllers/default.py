@@ -129,8 +129,10 @@ def file_loan():
     db.loan.interest_rate.writable = False
     #db.loan.interest.writable = False
     db.loan.service.default = service_id
-    interest_r = db(db.services.id==service_id).select(db.services.interest_rate).first().interest_rate
+    interest_r = Decimal(db(db.services.id==service_id).select(db.services.interest_rate).first().interest_rate)
     db.loan.interest_rate.default = interest_r
     db.loan.interest.default = round(Decimal('0.01') * db.loan.amount.default * interest_r, 2)
+    interest = Decimal(db.loan.interest.default)
+    amount = Decimal(db.loan.amount.default)
     form = SQLFORM(db.loan,fields=['service','member_id','amount','interest_rate','interest']).process()
     return locals()
